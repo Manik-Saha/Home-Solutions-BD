@@ -133,4 +133,10 @@ class homeController extends Controller
         return view('Frontend.searchappend',compact('apartment'));
 
     }
+    public function about(){
+        return view('Frontend.home.about');
+    }
+    public function contact(){
+        return view('Frontend.home.contact');
+    }
 }

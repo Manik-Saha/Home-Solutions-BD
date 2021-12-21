@@ -38,6 +38,8 @@ Route::get('/admin/login', [LoginController::class, 'index']);
 Route::post('/admin/login', [LoginController::class, 'verify']);
 
 Route::get('/logout', [LogoutController::class, 'index']);
+Route::get('/about', [homeController::class, 'about']);
+Route::get('/contact-us', [homeController::class, 'contact']);
 
 Route::group(['middleware' => 'Admin'], function () {
     //Admin

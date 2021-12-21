@@ -64,6 +64,7 @@
                            <div class="footer-menu">
                                <ul>
                                    <li><a href="/about">About</a></li>
+                                   <li><a href="/contact-us">Contact Us</a></li>
 
                                </ul>
                            </div>
@@ -74,7 +75,7 @@
                            <h4 class="footer-title">Services</h4>
                            <div class="footer-menu">
                                <ul>
-                                   <li><a href="order-tracking.html">Our Services</a></li>
+                                   <li><a href="/interior">Our Services</a></li>
                                </ul>
                            </div>
                        </div>
@@ -89,25 +90,14 @@
                            </div>
                        </div>
                    </div>
-                   <div class="col-xl-3 col-md-6 col-sm-12 col-12">
-                       <div class="footer-widget footer-newsletter-widget">
-                           <h4 class="footer-title">Newsletter</h4>
-                           <p>Subscribe to our weekly Newsletter and receive updates via email.</p>
-                           <div class="footer-newsletter">
-                               <form action="#">
-                                   <input type="email" name="email" placeholder="Email*">
-                                   <div class="btn-wrapper">
-                                       <button class="theme-btn-1 btn" type="submit"><i class="fas fa-location-arrow"></i></button>
-                                   </div>
-                               </form>
-                           </div>
-                           <h5 class="mt-30">We Accept</h5>
-                           <img src="{{url('frontend/img/icons/payment-4.png')}}" alt="Payment Image">
+                   <div class="col-md-3">
+                       <h4 class="footer-title">Our Headquater Location</h4>
+                       <div class="map-responsive">
+                           <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France" width="600" height="300" frameborder="0" style="border:0; width: 100%;" allowfullscreen></iframe>
                        </div>
                    </div>
                </div>
            </div>
-           <p style="text-align:center; background-color:#002e2e">Super admin Login? <a href="/admin/login" class="header-top-btn">CLICK HERE</a></p>
        </div>
        <div class="ltn__copyright-area ltn__copyright-2 section-bg-7  plr--5">
            <div class="container-fluid ltn__border-top-2">
@@ -170,7 +160,7 @@
                                            </div>
                                            <hr>
                                            <div class="modal-product-brief">
-                                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos repellendus repudiandae incidunt quidem pariatur expedita, quo quis modi tempore non.</p>
+                                               <p></p>
                                            </div>
                                            <div class="modal-product-meta ltn__product-details-menu-1 d-none">
                                                <ul>
