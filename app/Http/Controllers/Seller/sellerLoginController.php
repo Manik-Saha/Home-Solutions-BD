@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Seller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 
 class sellerLoginController extends Controller
 {

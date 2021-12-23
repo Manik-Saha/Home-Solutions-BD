@@ -57,7 +57,6 @@
 	<script src="{{ asset('loginAssets/js/jquery.min.js') }}"></script>
 	<script src="{{ asset('loginAssets/js/popper.js') }}"></script>
 	<script src="{{ asset('loginAssets/js/bootstrap.min.js') }}"></script>
-	<script src="{{ asset('loginAssets/js/main.js') }}"></script>
 
 </body>
 

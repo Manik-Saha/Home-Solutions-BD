@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\Footer;
+use App\Models\Interiors;
+use App\Models\Commercial;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -251,6 +253,7 @@ class AdminController extends Controller
         $footer->Twitter = $req->twitter;
         $footer->Linkedin = $req->linkedin;
         $footer->Youtube = $req->youtube;
+        $footer->Location = $req->location;
         $footer->updated_at = date('Y-m-d H:i:s', time());
 
         $footer->save();
@@ -284,5 +287,14 @@ class AdminController extends Controller
             ->orderBy('Updated_at', 'desc')
             ->get();
         return view('Admin.filterList')->with('list', $adminList);
+    }
+
+    public function interiors(){
+        $interiors = Interiors::all();
+        return view('Admin.interiors')->with('list', $interiors);
+    }
+    public function commertials(){
+        $commertials = Commercial::all();
+        return view('Admin.commertials')->with('list', $commertials);
     }
 }

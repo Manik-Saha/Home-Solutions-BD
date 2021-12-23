@@ -55,76 +55,69 @@
                     </div>
                 </div>
             </div>
-            <form>
-                @csrf
-                <p style="color: red; font-size: 15px;">{{ session('msg') }}</p>
-                <input class="form-control" type="text" name="search" id='search' placeholder="enter employee ID, name, E-mail etc" onekeyup="document()"><br>
-                <button class="btn btn-inverse-dark btn-fw" onclick="">Search</button> <br><br>
-                <div id="search_list"></div>
-                <p>
-                    <a class="btn btn-outline-success" href="/Manager/All">All</a>
-                    <a class="btn btn-outline-success" href="/Manager/recent">Recent</a>
-                    <a class="btn btn-outline-success" href="/Manager/last_week">Last Week</a>
-                    <a class="btn btn-outline-success" href="/Manager/last_month">Last Month</a>
-                    <a class="btn btn-primary" href="/Manager/BlockedUser">All Blocked Manager</a>
-                </p>
-                @if(count($list) != 0)
-                <table class="table table-striped table-bordered">
-                    <tr>
-                        <th>User ID</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th>Profile picture</th>
-                        <th>Full name</th>
-                        <th>Status</th>
-                        <th>Salary</th>
-                        <th>E-mail</th>
-                        <th>Contact no.</th>
-                    </tr>
-                    @for($i=0; $i < count($list); $i++) <tr>
-                        @if($list[$i]->status == '1')
-                        <td>{{$list[$i]->id}}</td>
-                        <td> <a class="btn btn-inverse-success" href="{{ route('Managers.Edit', [$list[$i]->id]) }}">Edit</a></td>
-                        <td> <a class="btn btn-inverse-warning" href="{{ route('Managers.Delete', [$list[$i]->id]) }}">Delete</a></td>
-                        <td> <a class="btn btn-inverse-primary" href="{{ route('Managers.Details', [$list[$i]->id]) }}">Details</a></td>
-                        <td> <a class="btn btn-inverse-danger" href="{{ route('Managers.Block', [$list[$i]->id]) }}">@if($list[$i]->status == "1") Block @else Unblock @endif</a></td>
-                        <td><img class="img-rounded-circle" src="{{asset('/upload')}}/{{$list[$i]->picture}}" width="100px" height="100px"></td>
-                        <td>{{$list[$i]->name}}</td>
-                        <td>{{$list[$i]->status}}</td>
-                        <td>{{$list[$i]->salary}}</td>
-                        <td>{{$list[$i]->email}}</td>
-                        <td>{{$list[$i]->phone}}</td>
-                        </tr>
-                        @endif
-                        @endfor
-                        @endif
-                        @if(count($list) == 0)
-                        <h6 style="padding:10px; background-color:#ffffff; text-align:center; padding-left:1190px;"></h6>
-                        <h3 style="padding:10px; background-color:#ffffff; text-align:center; color:#110000">No results found..!!</h3>
-                        @endif
-                </table>
-            </form>
+            <p style="color: red; font-size: 15px;">{{ session('msg') }}</p>
+            <p>
+                <a class="btn btn-outline-info" href="/Manager/All">All</a>
+                <a class="btn btn-outline-info" href="/Manager/recent">Recent</a>
+                <a class="btn btn-outline-info" href="/Manager/last_week">Last Week</a>
+                <a class="btn btn-outline-info" href="/Manager/last_month">Last Month</a>
+                <a class="btn btn-primary" href="/Manager/BlockedUser">All Blocked Manager</a>
+            </p>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table id="order-listing" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>User ID</th>
+                                            <th>Profile picture</th>
+                                            <th>Full name</th>
+                                            <th>Status</th>
+                                            <th>Salary</th>
+                                            <th>City name</th>
+                                            <th>E-mail</th>
+                                            <th>Contact no.</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @forelse ($list as $item)
+                                        <tr>
+                                            <td>{{ $item->id }}</td>
+                                            <td><img class="img-rounded-circle" src="{{ asset('/uploads/manager_image/' . $item->image) }}" width="100px" height="100px"></td>
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->status }}</td>
+                                            <td class="text-capitalize">
+                                                <span class="badge badge-danger">{{ $item->status == '0' ? 'Blocked' : '' }}</span>
+                                                <span class="badge badge-success">{{ $item->status == '1' ? 'Open' : '' }}</span>
+                                            </td>
+                                            <td>{{ $item->city }}</td>
+                                            <td>{{ $item->email }}</td>
+                                            <td>{{ $item->phone }}</td>
+                                            <td>
+                                                <a class="btn btn-inverse-success" href="{{ route('Managers.Edit', $item->id) }}">Edit</a>
+                                                <a class="btn btn-inverse-warning" href="{{ route('Managers.Delete', $item->id) }}">Delete</a>
+
+                                                <a class="btn btn-inverse-primary" href="{{ route('Managers.Details', $item->id) }}">Details</a>
+
+                                                <a class="btn btn-inverse-danger" href="{{ route('Managers.Block', $item->id) }}">
+                                                    @if ($item->status == '1') Block @else Unblock @endif</a>
+                                            </td>
+
+                                        </tr>
+                                        @empty
+                                        <p>Not found</p>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#search').on('keyup', function() {
-            var query = $(this).val();
-            $.ajax({
-                url: "search",
-                type: "GET",
-                data: {
-                    'search': query
-                },
-                success: function(data) {
-                    $('#search_list').html(data);
-                }
-            });
-        });
-    });
-</script>
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Seller;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Seller;
+use App\Models\Districts;
 use App\Models\Apartment;
 use App\Models\Gallery;
 use Hash;
@@ -19,7 +20,8 @@ class sellerController extends Controller
 
     public function Register(){        
 
-        return view('seller.Login&Register.register');
+        $city = Districts::all();
+        return view('seller.Login&Register.register')->with('city', $city);
 
     }
 

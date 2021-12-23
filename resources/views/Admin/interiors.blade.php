@@ -13,9 +13,9 @@
                             <div class="statistics-item">
                                 <p>
                                     <i class="icon-sm fa fa-user mr-2"></i>
-                                    New registered Admin
+                                    New query requests
                                 </p>
-                                <h2> {{ DB::table('admin')->where('Created_at', date('Y-m-d'))->count() }}</h2>
+                                <h2> {{ DB::table('interiors')->where('created_at', date('Y-m-d'))->count() }}</h2>
                                 <label class="badge badge-outline-success badge-pill"></label>
                             </div>
                             <div class="statistics-item">
@@ -23,7 +23,7 @@
                                     <i class="icon-sm fas fa-hourglass-half mr-2"></i>
                                     Last week
                                 </p>
-                                <h2> {{ DB::table('admin')->whereBetween('Created_at', [date('Y-m-d', strtotime('-7 days')), date('Y-m-d')])->count() }}
+                                <h2> {{ DB::table('interiors')->whereBetween('created_at', [date('Y-m-d', strtotime('-7 days')), date('Y-m-d')])->count() }}
                                 </h2>
                                 <label class="badge badge-outline-danger badge-pill"></label>
                             </div>
@@ -32,24 +32,32 @@
                                     <i class="icon-sm fas fa-cloud-download-alt mr-2"></i>
                                     Last month
                                 </p>
-                                <h2> {{ DB::table('admin')->whereBetween('Created_at', [date('Y-m-d', strtotime(date('Y-m-d') . ' - 30 days')), date('Y-m-d')])->count() }}
+                                <h2> {{ DB::table('interiors')->whereBetween('created_at', [date('Y-m-d', strtotime(date('Y-m-d') . ' - 30 days')), date('Y-m-d')])->count() }}
                                 </h2>
                                 <label class="badge badge-outline-success badge-pill"></label>
                             </div>
                             <div class="statistics-item">
                                 <p>
                                     <i class="icon-sm fas fa-check-circle mr-2"></i>
-                                    Blocked Admin
+                                    Left replies
                                 </p>
-                                <h2> {{ DB::table('admin')->where('Status', 'Blocked')->count() }} </h2>
+                                <h2> {{ DB::table('interiors')->where('reply', '0')->count() }} </h2>
+                                <label class="badge badge-outline-success badge-pill"></label>
+                            </div>
+                            <div class="statistics-item">
+                                <p>
+                                    <i class="icon-sm fas fa-check-circle mr-2"></i>
+                                    Given replies
+                                </p>
+                                <h2> {{ DB::table('interiors')->where('reply', '1')->count() }} </h2>
                                 <label class="badge badge-outline-success badge-pill"></label>
                             </div>
                             <div class="statistics-item">
                                 <p>
                                     <i class="icon-sm fas fa-chart-line mr-2"></i>
-                                    Total number of Admin
+                                    Total number of queries
                                 </p>
-                                <h2> {{ DB::table('admin')->count() }} </h2>
+                                <h2> {{ DB::table('interiors')->count() }} </h2>
                                 <label class="badge badge-outline-success badge-pill"></label>
                             </div>
                         </div>
@@ -63,44 +71,39 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive">
-                            <table id="order-listing" class="table table-striped table-bordered">
+                            <table id="order-listing" class="table">
                                 <thead>
                                     <tr>
                                         <th>User ID</th>
-                                        <th>Profile picture</th>
-                                        <th>First name</th>
-                                        <th>Last name</th>
-                                        <th>Status</th>
-                                        <th>Salary</th>
+                                        <th>User Name</th>
                                         <th>E-mail</th>
+                                        <th>Service Type</th>
                                         <th>Contact no.</th>
+                                        <th>Message</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @forelse ($list as $item)
                                     <tr>
-                                        <td>{{ $item->ID }}</td>
-                                        <td><img class="img-rounded-circle" src="{{ asset('/upload/' . $item->Picture) }}" width="100px" height="100px"></td>
-                                        <td>{{ $item->First_name }}</td>
-                                        <td>{{ $item->Last_name }}</td>
+                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->email }}</td>
+                                        <td>{{ $item->service }}</td>
+                                        <td>{{ $item->phone }}</td>
+                                        <td>{{ $item->message }}</td>
                                         <td class="text-capitalize">
-                                            <span class="badge badge-danger">{{ $item->Status == 'Blocked' ? 'Blocked' : '' }}</span>
-                                            <span class="badge badge-success">{{ $item->Status == 'Open' ? 'Open' : '' }}</span>
+                                            <span class="badge badge-danger">{{ $item->reply == '0' ? 'Not yet' : '' }}</span>
+                                            <span class="badge badge-warning">{{ $item->reply == '1' ? 'Replied' : '' }}</span>
                                         </td>
-                                        <td>{{ $item->Salary }}</td>
-                                        <td>{{ $item->Email }}</td>
-                                        <td>{{ $item->Phone }}</td>
                                         <td>
-                                            <a class="btn btn-inverse-success" href="{{ route('Admin.Edit', $item->ID) }}">Edit</a>
-                                            <a class="btn btn-inverse-warning" href="{{ route('Admin.Delete', $item->ID) }}">Delete</a>
-
-                                            <a class="btn btn-inverse-primary" href="{{ route('Admin.Details', $item->ID) }}">Details</a>
-
-                                            <a class="btn btn-inverse-danger" href="{{ route('Admin.Block', $item->ID) }}">
-                                                @if ($item->Status == 'Open') Block @else Unblock @endif</a>
+                                            <a class="btn btn-inverse-success" href="mailto:{{ $item['email'] }}">
+                                                @if($item->reply == '1') Reply again
+                                                @else Reply
+                                                @endif
+                                            </a>
                                         </td>
-
                                     </tr>
                                     @empty
                                     <p>Not found</p>

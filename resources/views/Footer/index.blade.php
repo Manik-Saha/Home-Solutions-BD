@@ -79,6 +79,13 @@
                                 <p style="color: red; font-size: 15px;">{{ $errors->first('youtube') }}</p>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="exampleinput1">Office Location</label>
+                            <input class="form-control" name="location" rows="4" placeholder="Location link" value="{{ $footer['Location'] }}">
+                            <div>
+                                <p style="color: red; font-size: 15px;">{{ $errors->first('location') }}</p>
+                            </div>
+                        </div>
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                         <button class="btn btn-light">Cancel</button>
                     </form>
@@ -90,4 +97,5 @@
 
 <script src="{{asset('js/typeahead.js')}}"></script>
 <script src="{{asset('js/select2.js')}}"></script>
+
 @endsection

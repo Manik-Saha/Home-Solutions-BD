@@ -32,7 +32,8 @@ class FooterRequest extends FormRequest
             'twitter' => 'required|url|bail',
             'linkedin' => 'required|url|bail',
             'youtube' => 'required|url|bail',
-            'instagram' => 'required|url|bail'
+            'instagram' => 'required|url|bail',
+            'location' => 'required|url|bail'
         ];
     }
     public function messages()
@@ -41,7 +42,8 @@ class FooterRequest extends FormRequest
             'facebook.url' => 'Please insert a valid Facebook URL',
             'twitter.url' => 'Please insert a valid Twitter URL',
             'linkedin.url' => 'Please insert a valid Linkedin URL',
-            'youtube.url' => 'Please insert a valid YouTube URL'
+            'youtube.url' => 'Please insert a valid YouTube URL',
+            'location.url' => 'Please insert a valid Location'
         ];
     }
 }

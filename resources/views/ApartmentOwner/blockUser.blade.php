@@ -61,6 +61,7 @@
                 <input class="form-control" type="text" placeholder="enter owner ID"><br>
                 <button class="btn btn-inverse-dark btn-fw">Search</button> <br><br>
                 <p>
+                    <a class="btn btn-outline-info" href="/ApartmentOwner/All">All</a>
                     <a class="btn btn-outline-info" href="/ApartmentOwner/recent">Recent</a>
                     <a class="btn btn-outline-info" href="/ApartmentOwner/last_week">Last Week</a>
                     <a class="btn btn-outline-info" href="/ApartmentOwner/last_month">Last Month</a>

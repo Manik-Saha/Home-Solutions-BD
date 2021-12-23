@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
 use App\Models\Gallery;
+use App\Models\Districts;
 use App\Models\Review;
 use App\Models\Interior;
 use App\Models\Commercial;
@@ -88,6 +89,7 @@ class homeController extends Controller
         $interior->email = $request->email;
         $interior->service = $request->service; 
         $interior->phone = $request->phone;
+        $interior->reply = "0";
         $interior->message = $request->message;
         $interior->save();
 
@@ -99,6 +101,7 @@ class homeController extends Controller
         $commercial->email = $request->email;
         $commercial->service = $request->service; 
         $commercial->phone = $request->phone;
+        $commercial->reply = "0";
         $commercial->message = $request->message;
         $commercial->save();
 
@@ -106,7 +109,7 @@ class homeController extends Controller
     }
 
     public function Search(){
-        $district = District::all();
+        $district = Districts::all();
 
         return view('Frontend.search',compact('district'));
     }
@@ -128,7 +131,7 @@ class homeController extends Controller
         $atype=$request->atype;
 
 
-        $apartment=Apartment::with('seller')->where('city',$city)->where('rent_sell',$type)->where('type',$atype)->get();
+        $apartment = Apartment::with('seller')->where('city', $city)->where('rent_sell', $type)->where('type', $atype)->get();
 
         return view('Frontend.searchappend',compact('apartment'));
 

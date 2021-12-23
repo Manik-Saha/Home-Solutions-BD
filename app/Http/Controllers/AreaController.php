@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 use App\Models\Managers;
+use App\Models\Apartment;
+use App\Models\Seller;
 use App\Models\Districts;
 use App\Http\Requests\NewManagersRequest;
 use App\Http\Requests\UpdateManagersRequest;
-
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class AreaController extends Controller
 {
@@ -38,7 +41,7 @@ class AreaController extends Controller
                 if ($req->password == $req->Cpassword) {
                     $manager = new Managers();
                     $manager->name = $req->name;
-                    $manager->password = md5($req->password);
+                    $manager->password = Hash::make($req->password);
                     $manager->address = $req->address;
                     $manager->email = $req->email;
                     $manager->phone = $req->phone;
@@ -48,7 +51,7 @@ class AreaController extends Controller
                     $manager->city = $req->city;
                     $manager->Joining = $req->joining;
                     $manager->salary = $req->salary;
-                    $manager->picture = $filename;
+                    $manager->image = $filename;
                     $manager->created_at = date('Y-m-d H:i:s', time());
                     $manager->updated_at = date('Y-m-d H:i:s', time());
 
@@ -156,6 +159,8 @@ class AreaController extends Controller
     public function details($ID, Request $req)
     {
         $manager = Managers::find($ID);
-        return view('Managers.details')->with('manager', $manager);
+        $apartment = Apartment::where('city', $manager->city)->get();
+        $seller = Seller::where('city', $manager->city)->get();
+        return view('Managers.details', compact('apartment','manager','seller'));
     }
 }

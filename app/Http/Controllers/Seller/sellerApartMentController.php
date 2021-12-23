@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Seller;
 use App\Http\Controllers\Controller;
 use App\Models\Apartment;
 use App\Models\Gallery;
+use App\Models\Districts;
 use Auth;
 use Devfaysal\BangladeshGeocode\Models\District;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ class sellerApartMentController extends Controller
 {
     public function Apartment()
     {
-        $district = District::all();
+        $district = Districts::all();
         return view('seller.apartment.add_apartment', compact('district'));
     }
 
@@ -99,7 +100,7 @@ class sellerApartMentController extends Controller
     {
 
         $apartment = Apartment::find($id);
-        $district = District::all();
+        $district = Districts::all();
         $gallery = Gallery::where('apartment_id', $id)->get();
         return view('seller.apartment.edit_apartment', compact('apartment', 'district', 'gallery'));
     }
@@ -109,7 +110,7 @@ class sellerApartMentController extends Controller
     {
 
         $apartment = Apartment::find($id);
-        $district = District::all();
+        $district = Districts::all();
         $gallery = Gallery::where('apartment_id', $id)->get();
         return view('seller.apartment.apartmentdetails', compact('apartment', 'district', 'gallery'));
     }

@@ -58,6 +58,8 @@ Route::group(['middleware' => 'Admin'], function () {
     Route::get('Admin/Block/{ID}', [AdminController::class, 'block'])->name('Admin.Block');
     Route::get('/Admin/BlockedUser', [AdminController::class, 'blockUser'])->name('Admin.BlockedUser');
     Route::get('/Admin/footer', [AdminController::class, 'footer'])->name('Admin.footer');
+    Route::get('/Admin/interiors', [AdminController::class, 'interiors'])->name('Admin.interiors');
+    Route::get('/Admin/commertials', [AdminController::class, 'commertials'])->name('Admin.commertials');
     Route::post('/Admin/footer', [AdminController::class, 'storeFooter']);
     Route::get('/Admin/recent', [AdminController::class, 'recent']);
     Route::get('/Admin/last_week', [AdminController::class, 'last_week']);

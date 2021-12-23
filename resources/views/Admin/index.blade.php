@@ -59,97 +59,11 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-8 grid-margin stretch-card">
+      <div class="col-lg-8 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">
-              <i class="fas fa-table"></i>
-              Sales Data
-            </h4>
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Customer</th>
-                    <th>Item code</th>
-                    <th>Orders</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="font-weight-bold">
-                      Clifford Wilson
-                    </td>
-                    <td class="text-muted">
-                      PT613
-                    </td>
-                    <td>
-                      350
-                    </td>
-                    <td>
-                      <label class="badge badge-success badge-pill">Dispatched</label>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="font-weight-bold">
-                      Mary Payne
-                    </td>
-                    <td class="text-muted">
-                      ST456
-                    </td>
-                    <td>
-                      520
-                    </td>
-                    <td>
-                      <label class="badge badge-warning badge-pill">Processing</label>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="font-weight-bold">
-                      Adelaide Blake
-                    </td>
-                    <td class="text-muted">
-                      CS789
-                    </td>
-                    <td>
-                      830
-                    </td>
-                    <td>
-                      <label class="badge badge-danger badge-pill">Failed</label>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="font-weight-bold">
-                      Adeline King
-                    </td>
-                    <td class="text-muted">
-                      LP908
-                    </td>
-                    <td>
-                      579
-                    </td>
-                    <td>
-                      <label class="badge badge-primary badge-pill">Delivered</label>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="font-weight-bold">
-                      Bertie Robbins
-                    </td>
-                    <td class="text-muted">
-                      HF675
-                    </td>
-                    <td>
-                      790
-                    </td>
-                    <td>
-                      <label class="badge badge-info badge-pill">On Hold</label>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <h4 class="card-title">Bar chart</h4>
+            <canvas id="barChart"></canvas>
           </div>
         </div>
       </div>
@@ -167,5 +81,7 @@
     </div>
   </div>
 </div>
+
+<script src="../../js/chart.js"></script>
 <!-- content-wrapper ends -->
 @endsection

@@ -88,7 +88,7 @@
                         <td> <a class="btn btn-inverse-warning" href="{{ route('Managers.Delete', [$list[$i]['id']]) }}">Delete</a></td>
                         <td> <a class="btn btn-inverse-primary" href="{{ route('Managers.Details', [$list[$i]['id']]) }}">Details</a></td>
                         <td> <a class="btn btn-inverse-danger" href="{{ route('Managers.Block', [$list[$i]['id']]) }}">@if($list[$i]['status'] == "1") Block @else Unblock @endif</a></td>
-                        <td><img class="img-rounded-circle" src="{{asset('/upload')}}/{{$list[$i]['picture']}}" width="100px" height="100px"></td>
+                        <td><img class="img-rounded-circle" src="{{asset('/uploads/managers_image')}}/{{$list[$i]['image']}}" width="100px" height="100px"></td>
                         <td>{{$list[$i]['name']}}</td>
                         <td>{{$list[$i]['status']}}</td>
                         <td>{{$list[$i]['salary']}}</td>

@@ -3,7 +3,7 @@
 @section('main-content')
 <div id="ltn__utilize-cart-menu" class="ltn__utilize ltn__utilize-cart-menu">
     <div class="ltn__utilize-menu-inner ltn__scrollbar">
-   
+
 
     </div>
 </div>
@@ -30,10 +30,10 @@
                                     <h6 class="slide-sub-title white-color--- animated"><span><i class="fas fa-home"></i></span> Real Estate Agency</h6>
                                     <h1 class="slide-title animated ">Find Your Dream <br> House By Us</h1>
                                     <div class="slide-brief animated">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                                        <p>A Smart and modern solutions for your dream home.</p>
                                     </div>
                                     <div class="btn-wrapper animated">
-                                        <a href="shop.html" class="theme-btn-1 btn btn-effect-1">Make An Enquiry</a>
+                                        <a href="/search" class="theme-btn-1 btn btn-effect-1">Make A Search for Your Home</a>
                                     </div>
                                 </div>
                             </div>
@@ -53,10 +53,10 @@
                                     <h6 class="slide-sub-title white-color--- animated"><span><i class="fas fa-home"></i></span> Real Estate Agency</h6>
                                     <h1 class="slide-title animated ">Find Your Dream <br> House By Us</h1>
                                     <div class="slide-brief animated">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                                        <p>A Smart and modern solutions for your dream home.</p>
                                     </div>
                                     <div class="btn-wrapper animated">
-                                        <a href="shop.html" class="theme-btn-1 btn btn-effect-1">Make An Enquiry</a>
+                                        <a href="/search" class="theme-btn-1 btn btn-effect-1">Make A Search for Your Home</a>
                                     </div>
                                 </div>
                             </div>
@@ -76,10 +76,10 @@
                                     <h6 class="slide-sub-title white-color--- animated"><span><i class="fas fa-home"></i></span> Real Estate Agency</h6>
                                     <h1 class="slide-title animated ">Find Your Dream <br> House By Us</h1>
                                     <div class="slide-brief animated">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                                        <p>A Smart and modern solutions for your dream home.</p>
                                     </div>
                                     <div class="btn-wrapper animated">
-                                        <a href="shop.html" class="theme-btn-1 btn btn-effect-1">Make An Enquiry</a>
+                                        <a href="/search" class="theme-btn-1 btn btn-effect-1">Make A Search for Your Home</a>
                                     </div>
                                 </div>
                             </div>
@@ -271,7 +271,7 @@
                                 @endif
                             </ul>
                         </div>
-                     
+
                     </div>
                     <div class="product-info">
                         <div class="product-price">
@@ -301,25 +301,25 @@
                         <div class="real-estate-agent">
                             <div class="agent-img">
                                 @if($item->seller->image)
-                                <img src="{{url('/uploads/seller_image/'.$item->seller->image)}}" alt="#"></a>                                     
-                                 @else
-                                 <img src="{{url('frontend/img/blog/author.jpg')}}" alt="#">
-                                 @endif
+                                <img src="{{url('/uploads/seller_image/'.$item->seller->image)}}" alt="#"></a>
+                                @else
+                                <img src="{{url('frontend/img/blog/author.jpg')}}" alt="#">
+                                @endif
                             </div>
                             <div class="agent-brief">
                                 <h6><a href="{{route('details.apartment',$item->id)}}">{{$item->seller->name}}</a></h6>
                                 <small><i class="fa fa-phone"></i>{{$item->seller->phone}}</small>
                             </div>
                         </div>
-                       
+
                     </div>
                 </div>
             </div>
             @empty
-                
+
             @endforelse
-          
-            <div class="search-by-place-btn">           
+
+            <div class="search-by-place-btn">
                 <a href="{{route('featurer.apartment')}}" class="btn theme-btn-1 btn-effect-1 text-uppercase">View All <i class="flaticon-right-arrow"></i></a>
 
             </div>
@@ -356,7 +356,7 @@
                                 @endif
                             </ul>
                         </div>
-                     
+
                     </div>
                     <div class="product-info">
                         <div class="product-price">
@@ -386,31 +386,31 @@
                         <div class="real-estate-agent">
                             <div class="agent-img">
                                 @if($item->seller->image)
-                                <img src="{{url('/uploads/seller_image/'.$item->seller->image)}}" alt="#"></a>                                     
-                                 @else
-                                 <img src="{{url('frontend/img/blog/author.jpg')}}" alt="#">
-                                 @endif
+                                <img src="{{url('/uploads/seller_image/'.$item->seller->image)}}" alt="#"></a>
+                                @else
+                                <img src="{{url('frontend/img/blog/author.jpg')}}" alt="#">
+                                @endif
                             </div>
                             <div class="agent-brief">
                                 <h6><a href="{{route('details.apartment',$item->id)}}">{{$item->seller->name}}</a></h6>
                                 <small><i class="fa fa-phone"></i>{{$item->seller->phone}}</small>
                             </div>
                         </div>
-                       
+
                     </div>
                 </div>
             </div>
-         
-           
+
+
             @empty
-                    
+
             @endforelse
-           
+
             <div class="search-by-place-btn">
                 <a href="{{route('all.apartment')}}" class="btn theme-btn-1 btn-effect-1 text-uppercase">View All <i class="flaticon-right-arrow"></i></a>
             </div>
-           
-          
+
+
         </div>
     </div>
 </div>

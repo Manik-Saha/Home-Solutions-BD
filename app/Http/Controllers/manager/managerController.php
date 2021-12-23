@@ -5,6 +5,7 @@ namespace App\Http\Controllers\manager;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Apartment;
+use App\Models\Districts;
 use App\Models\Manager;
 use App\Models\Seller;
 use App\Models\Gallery;
@@ -29,7 +30,7 @@ class managerController extends Controller
     {
 
         $apartment = Apartment::find($id);
-        $district = District::all();
+        $district = Districts::all();
         $gallery = Gallery::where('apartment_id', $id)->get();
         return view('manager.apartment.edit_apartment', compact('apartment', 'district', 'gallery'));
     }
@@ -132,7 +133,7 @@ class managerController extends Controller
     {
 
         $apartment = Apartment::find($id);
-        $district = District::all();
+        $district = Districts::all();
         $gallery = Gallery::where('apartment_id', $id)->get();
         return view('manager.apartment.apartmentdetails', compact('apartment', 'district', 'gallery'));
     }
