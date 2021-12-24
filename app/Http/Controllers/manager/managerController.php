@@ -196,7 +196,6 @@ public function updateProfile(Request $request)
     $seller->name = $request->name;
     $seller->email = $request->email;
     $seller->phone = $request->phone;
-    $seller->city = $request->address;
 
 
     if ($request->has('password') && !empty($request->password)) {

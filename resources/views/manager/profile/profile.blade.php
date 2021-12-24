@@ -41,12 +41,6 @@
 
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">City</label>
-                    <input type="text" class="form-control text-capitalize" id="address" name="address"
-                        value="{{ old('address', $seller->city) }}" placeholder="Enter Address" required>
-
-                </div>
-                <div class="form-group">
                     <label for="exampleInputEmail1">Image</label>
                     <input type="file" name="image"  id="edit-image"
                         class="form-control ">

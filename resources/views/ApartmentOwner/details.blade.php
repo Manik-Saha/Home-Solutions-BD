@@ -55,7 +55,6 @@
             </table><br>
             <table class="table table-striped table-bordered">
                 @for($i=0; $i < count($details); $i++) <tr style="text-align: center">
-                    @if($details[$i]->status == '1')
                     <td>{{$details[$i]->id}}</td>
                     <td> <a class="btn btn-inverse-warning" href="{{ route('Apartment.Details', [$details[$i]->id]) }}">Details</a></td>
                     <td> <a class="btn btn-inverse-danger" href="{{ route('Apartment.Block', [$details[$i]->id]) }}">Block</a></td>
@@ -74,7 +73,6 @@
                         Home Address : <p style="color: blue; font-size:20px"> {{$details[$i]->address}}</p>
                     </td>
                     </tr>
-                    @endif
                     @endfor
             </table>
         </center>
