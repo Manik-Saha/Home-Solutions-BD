@@ -27,7 +27,7 @@ class NewManagersRequest extends FormRequest
             'name' => 'required',
             'password' => 'required|min:6',
             'gender' => 'required',
-            'city' => 'required',
+            'city' => 'required|unique:managers,city|bail',
             'profileImage' => 'required',
             'address' => 'required',
             'email' => 'required|min:10|max:50|email:rfc,dns|unique:managers,email|bail',
@@ -41,6 +41,7 @@ class NewManagersRequest extends FormRequest
     {
         return [
             'profileImage.required' => 'Please insert an image',
+            'city.unique' => 'Manager has already been appointed in this city'
         ];
     }
 }

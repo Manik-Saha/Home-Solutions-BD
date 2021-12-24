@@ -146,7 +146,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                             <i class="fas fa-users menu-icon"></i>
                             <span class="menu-title">Customer Management</span>
@@ -158,7 +158,7 @@
                                         Customers</a></li>
                             </ul>
                         </div>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#ui-advanced" aria-expanded="false" aria-controls="ui-advanced">
                             <i class="fas fa-users menu-icon"></i>

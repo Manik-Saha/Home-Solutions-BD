@@ -76,7 +76,7 @@
                                 @endfor
                             </select>
                             <div>
-                                <p style="color: red; font-size: 15px;">{{ $errors->first('gender') }}</p>
+                                <p style="color: red; font-size: 15px;">{{ $errors->first('city') }}</p>
                             </div>
                         </div>
                         <div class="form-group">

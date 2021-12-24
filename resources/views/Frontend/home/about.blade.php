@@ -7,6 +7,7 @@ use App\Models\Footer;
 
 $footer = Footer::find(1);
 ?>
+
 <div class="about_section_2 layout_padding">
     <div class="container">
         <h1 class="about_text_2"><strong>ABOUT US</strong></h1>

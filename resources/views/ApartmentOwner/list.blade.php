@@ -1,7 +1,6 @@
 @extends('Layout.admin')
 
 @section('main_content')
-<div>
     <div class="container-fluid">
         <div class="content-wrapper">
             <h1 style="padding:10px; background-color:#ffffff">Apartment Owner (Seller) :</h1>
@@ -119,5 +118,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection

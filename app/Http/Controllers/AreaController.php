@@ -36,7 +36,7 @@ class AreaController extends Controller
                 $file->getClientOriginalExtension() == 'png' || $file->getClientOriginalExtension() == 'PNG'
             ) {
                 $filename = time() . "." . $file->getClientOriginalExtension();
-                $file->move('upload', $filename);
+                $file->move('uploads/manager_image', $filename);
 
                 if ($req->password == $req->Cpassword) {
                     $manager = new Managers();
