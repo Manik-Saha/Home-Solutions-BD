@@ -119,9 +119,9 @@ $footer = Footer::find(1);
                                 <div class="input-item">
                                     <select required class="nice-select" name="service">
                                         <option value="Select Service Type">Select Service Type</option>
-                                        <option value="Property Management">Property Management </option>
-                                        <option value="Mortgage Service">Mortgage Service </option>
-
+                                        <option value="Decorate Service">Decorate Service </option>
+                                        <option value="Renovate Service">Renovate Service </option>
+                                        <option value="Remodel Service">Remodel Service </option>
                                     </select>
                                 </div>
                             </div>
